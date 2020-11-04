@@ -1,0 +1,15 @@
+export class Message {
+    sender: any;
+    id: number;
+    content: string;
+    read: boolean;
+    date: Date;
+
+    construct() {
+    }
+
+    name() {
+    }
+
+    // and so on, put other methods here
+}
