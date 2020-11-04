@@ -25,9 +25,10 @@ export default {
       a.date=new Date(a.date);
       b.date=new Date(b.date);
       if(a.date.getHours()<b.date.getHours() || a.date.getHours()===b.date.getHours()&&a.date.getMinutes()<b.date.getMinutes())
-        return -1;
+        return 1;
         else if(a.date.getHours()>b.date.getHours() || a.date.getHours()===b.date.getHours()&&a.date.getMinutes()>b.date.getMinutes())
-        return  1;
+        return  -1;
+        return 0
     });
   }
   ,
