@@ -7,16 +7,19 @@ import Message from "./Message";
 
 export default {
   name: "Messages",
-  props: {
-    messages:[],
-  },
   components: {
     Message
   },
   methods:{
     changeReadState(id){
-      if(!this.messages.find((message)=>message.id===id).read)
+      if(!this.messages.find((message)=>message.id===id).read){
       this.messages.find((message)=>message.id===id).read=true;
+      this.$store.commit('setMessages',{messages:this.messages})}
+    }
+  },
+  computed:{
+    messages(){
+      return this.$store.getters.sortMessagesByDate;
     }
   }
 };

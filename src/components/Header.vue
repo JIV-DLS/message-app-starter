@@ -1,11 +1,21 @@
 <template>
   <table width="100%">
-    <tr style="border-bottom: solid red 3px">
-      <td><i class="fa fa-users fa-3x" aria-hidden="true"></i></td>
-      <td><i class="fa fa-phone fa-3x" aria-hidden="true"></i></td>
-      <td><i class="fa fa-comment-dots fa-3x fa-border" v-bind:class="{'badge':unreadMessages>0}" :data-count="unreadMessages"></i></td>
-      <td><i class="fas fa-credit-card fa-3x" aria-hidden="true"></i></td>
-      <td><i class="fas fa-ellipsis-h fa-3x" aria-hidden="true"></i></td>
+    <tr style="">
+      <td width="96%" colspan="4" style="text-align: left"><h2>Chats</h2></td>
+      <td width="2%">
+        <i class="fa fa-search"></i>
+      </td>
+      <td width="2%">
+        <i class="fa fa-plus"></i>
+      </td>
+    </tr>
+    <tr style="">
+      <td width="16%" class="active">All</td>
+      <td width="17%">Favorites</td>
+      <td width="17%">Channels</td>
+      <td width="46%"></td>
+      <td width="2%"></td>
+      <td width="2%"></td>
     </tr>
   </table>
   <!--<div class="hello">
@@ -16,10 +26,8 @@
 <script>
 export default {
   name: "Menu",
-  computed:{
-    unreadMessages(){
-      return this.$store.getters.numberOfUnreadMessages;
-    }
+  props: {
+    unreadMessages : Number,
   }
 };
 </script>
@@ -49,9 +57,8 @@ export default {
     color:white;
     border:1px solid crimson;
   }
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
+  .active{
+    text-decoration: #0088cc underline;
+    color: #0088cc;
   }
 </style>
