@@ -1,34 +1,33 @@
 <template>
   <div class="app">
-    <Header></Header>
-    <Messages v-bind:messages="messages" ></Messages>
-    <Menu></Menu>
+    <div style="height: 400px; max-height: 400px; overflow-y: hidden;">
+      <router-view></router-view>
+    </div>
+    <div>
+      <Menu></Menu>
+    </div>
   </div>
 </template>
 
 <script>
 
-import Header from "./components/Header.vue";
-import Messages from "./components/Messages.vue";
 import Menu from "./components/Menu.vue";
 
 export default {
 
   name: "App",
   components: {
-    Messages,
-    Menu,
-    Header
+    Menu
   },
   created:function() {
     this.$store.dispatch('setMessages');
+    this.$store.dispatch('setContacts');
   }
 };
 </script>
 
 <style>
 html, body {
-  height: 100%;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -37,4 +36,7 @@ html, body {
   text-align: center;
   color: #2c3e50;
 }
+  .app{
+    height: 20px;
+  }
 </style>

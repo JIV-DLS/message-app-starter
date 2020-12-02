@@ -1,21 +1,13 @@
 <template>
   <table width="100%">
     <tr style="">
-      <td width="96%" colspan="4" style="text-align: left"><h2>Chats</h2></td>
+      <td width="96%" colspan="4" style="text-align: left"><h2>{{title}}</h2></td>
       <td width="2%">
         <i class="fa fa-search"></i>
       </td>
       <td width="2%">
         <i class="fa fa-plus"></i>
       </td>
-    </tr>
-    <tr style="">
-      <td width="16%" class="active">All</td>
-      <td width="17%">Favorites</td>
-      <td width="17%">Channels</td>
-      <td width="46%"></td>
-      <td width="2%"></td>
-      <td width="2%"></td>
     </tr>
   </table>
   <!--<div class="hello">
@@ -27,7 +19,7 @@
 export default {
   name: "Menu",
   props: {
-    unreadMessages : Number,
+    title: String,
   }
 };
 </script>

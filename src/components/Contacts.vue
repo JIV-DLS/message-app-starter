@@ -1,43 +1,33 @@
 <template>
-  <table width="100%" @click="markAsRead()">
-    <tr  height="30px">
-      <th rowspan="2"><center><img :src="message.sender.profileImage" width="100" height="100"></center></th>
-      <th width="80%" style="text-align: left">{{message.sender.name}}</th>
-      <th rowspan="2">
-        <i v-if="message.read" class="fa fa-check-double" style="color: limegreen" aria-hidden="true"></i>
-        <i v-else class="fa fa-check" aria-hidden="true"></i>
-        {{dateToHourMin(message.date)}}</th>
-    </tr>
-    <tr height="50px">
-      <th width="80%">{{message.content}}</th>
-    </tr>
-  </table>
+ <div style="height: 90px;">
+ <Header title="Contacts"></Header>
+</div>
+ <div style="height: 310px; max-height: 350px; overflow-y: scroll;">
+ <Contact v-for="item in contacts" :contact="item" :key="item" v-on:update:Read="changeReadState(item.id)"></Contact>
+ </div>
 </template>
 
 <script>
   //import moment from 'moment'
-export default {
-  name: "Message",
+import Contact from "./Contact";
+import Header from "./Header";
+  export default {
+  name: "Contacts",
+   components: {
+    Contact,
+    Header
+   },
   props: {
-    message: Object,
   },
   methods: {
-    markAsRead(){
-      this.$emit('update:Read');
-    },
-    dateToHourMin(date){
-      if (date) {
-        //return moment(String(date)).format('hh:mm')
-        const complet = new Date(date);
-        return complet.getHours()+':'+complet.getMinutes();
-      }
-    }
   },
   filters: {
-    formatHourMin: function (value) {
-      return this.dateToHourMin(value);
+  },
+   computed:{
+    contacts(){
+     return this.$store.state.contactsModule.contacts;
     }
-  }
+   }
 };
 </script>
 

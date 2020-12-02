@@ -1,14 +1,24 @@
 <template>
+  <div style="height: 90px;">
+    <Header title="Chats"></Header>
+    <MessagesHeader title="Chats"></MessagesHeader>
+  </div>
+  <div style="height: 310px; max-height: 350px; overflow-y: scroll;">
   <Message v-for="item in messages" :message="item" :key="item" v-on:update:Read="changeReadState(item.id)"></Message>
+  </div>
 </template>
 
 <script>
 import Message from "./Message";
+import Header from "./Header";
+import MessagesHeader from "./MessagesHeader";
 
 export default {
   name: "Messages",
   components: {
-    Message
+    MessagesHeader,
+    Message,
+    Header
   },
   methods:{
     changeReadState(id){
@@ -19,6 +29,7 @@ export default {
   },
   computed:{
     messages(){
+      console.log(this.$store);
       return this.$store.getters.sortMessagesByDate;
     }
   }

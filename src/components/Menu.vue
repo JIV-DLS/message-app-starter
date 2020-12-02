@@ -2,8 +2,8 @@
   <table width="100%">
     <tr style="border-bottom: solid red 3px">
       <td><i class="fa fa-users fa-3x" aria-hidden="true"></i></td>
-      <td><i class="fa fa-phone fa-3x" aria-hidden="true"></i></td>
-      <td><i class="fa fa-comment-dots fa-3x fa-border" v-bind:class="{'badge':unreadMessages>0}" :data-count="unreadMessages"></i></td>
+      <td><router-link to="contacts"><i class="fa fa-phone fa-3x" aria-hidden="true"></i></router-link></td>
+      <td><router-link to="messages"><i class="fa fa-comment-dots fa-3x fa-border" v-bind:class="{'badge':unreadMessages>0}" :data-count="unreadMessages"></i></router-link></td>
       <td><i class="fas fa-credit-card fa-3x" aria-hidden="true"></i></td>
       <td><i class="fas fa-ellipsis-h fa-3x" aria-hidden="true"></i></td>
     </tr>
